@@ -38,3 +38,12 @@ python scraper.py https://www.python.org
 
 ## Hasil
 Program akan mencetak ringkasan isi halaman website yang diberikan.
+
+## Bottleneck umum dan solusinya
+
+| Bottleneck umum | Penyebab | Fix |
+|---|---|---|
+| Gagal di halaman kompleks | Scraper cuma ambil `<body>` mentah | Pakai proper HTML parser (BeautifulSoup) + fallback headless browser (Playwright) untuk halaman dynamic |
+| Gagal di konten panjang | Seluruh teks halaman langsung dikirim ke LLM tanpa batas, sehingga context terlalu melebar / token limit error | Chunking + truncation strategy, atau map-reduce summarization (ringkas per chunk, lalu ringkas ulang gabungannya) |
+| Summary tidak konsisten panjangnya | Tidak ada constraint eksplisit ke LLM | Guardrail: hard limit token/kata di prompt + post-processing validation (potong ulang kalau LLM tetap kepanjangan) |
+| Timeout/crash di halaman berat | Tidak ada retry, tidak ada timeout handling | Try-except per request + ulangi dengan max content size limit |
