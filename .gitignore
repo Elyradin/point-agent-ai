@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+.env
+
+# Local environment and secrets
+memory.json
+*.secret
+*.log
+
+# Chroma/vector DB folders
+pdf_db/
+pdf_db2/
+pdf_db3/
+
+# Editor directories
+.vscode/
+.idea/
+
+# Streamlit cache
+.streamlit/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
