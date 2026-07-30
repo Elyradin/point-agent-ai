@@ -7,8 +7,7 @@ Branch ini berisi perancangan workflow AI Email Agent untuk mengotomatisasi pros
 ---
 
 ## Workflow Diagram
-
-![Workflow AI Email Agent](workfllow-diagram.png)
+(workfllow-diagram.png)
 
 ---
 
