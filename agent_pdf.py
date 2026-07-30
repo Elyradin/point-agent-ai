@@ -35,7 +35,6 @@ def log(msg):
 
 
 def read_pdf(pdf_path):
-    """Baca isi PDF"""
     log(f"📄 Membaca PDF: {pdf_path}")
     
     try:
@@ -58,7 +57,6 @@ def read_pdf(pdf_path):
 
 
 def load_memory():
-    """Load memory from MEMORY_PATH (JSON)."""
     try:
         if not os.path.exists(MEMORY_PATH):
             return {}
@@ -69,7 +67,6 @@ def load_memory():
 
 
 def save_memory(mem: dict):
-    """Save memory dict to disk."""
     try:
         with open(MEMORY_PATH, "w", encoding="utf-8") as f:
             json.dump(mem, f, ensure_ascii=False, indent=2)
@@ -78,7 +75,6 @@ def save_memory(mem: dict):
 
 
 def evaluate_expression(expression: str):
-    """Evaluate a simple arithmetic expression safely."""
     expr = expression.strip()
     if not expr:
         raise ValueError("Ekspresi kosong")
@@ -145,7 +141,6 @@ def evaluate_expression(expression: str):
 
 
 def handle_calculator(question: str):
-    """Return a calculator answer for math-style questions, otherwise None."""
     q = question.strip()
     if not q:
         return None
@@ -168,7 +163,6 @@ def handle_calculator(question: str):
     return None
 
 def chunk_text(text, chunk_size=500, chunk_overlap=50):
-    """Pecah teks panjang jadi chunk-chunk kecil"""
     log(f"✂️ Memecah teks menjadi chunk (size={chunk_size})...")
     
     text_splitter = RecursiveCharacterTextSplitter(
@@ -183,7 +177,6 @@ def chunk_text(text, chunk_size=500, chunk_overlap=50):
     return chunks
 
 def create_vectorstore(chunks):
-    """Simpan chunk ke Vector Database"""
     log("🗄️ Membuat Vector Store...")
 
     if GoogleGenerativeAIEmbeddings is None:
@@ -205,8 +198,6 @@ def create_vectorstore(chunks):
     return vectorstore
 
 def answer_question(question, vectorstore, memory):
-    """Jawab pertanyaan berdasarkan PDF"""
-    
     log(f"🔍 Mencari informasi untuk: '{question[:50]}...'")
     
     retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
