@@ -1,15 +1,11 @@
 # Part 2 — Web Scraper + Summarizer
 
-Bagian ini menambahkan fitur web scraping sederhana yang mengambil isi halaman website, lalu meringkasnya dengan model Anthropic Claude.
+Bagian ini menambahkan fitur web scraping sederhana yang mengambil isi halaman website, lalu meringkasnya dengan model Gemini melalui Google API key.
 
-## Apa yang bisa dilakukan
-- Mengambil konten HTML dari URL tertentu
-- Membersihkan isi halaman dengan BeautifulSoup
-- Mengirim teks ke model Claude untuk dibuat ringkasan
 
 ## Prasyarat
 - Python 3.10+
-- API key Anthropic
+- API key Google
 
 ## Instalasi
 1. Masuk ke folder proyek
@@ -26,24 +22,19 @@ Bagian ini menambahkan fitur web scraping sederhana yang mengambil isi halaman w
 ## Konfigurasi
 Buat file `.env` di root proyek dan isi:
 ```env
-ANTHROPIC_API_KEY=your_anthropic_api_key_here
+GOOGLE_API_KEY=your_anthropic_api_key_here
 ```
 
 ## Menjalankan scraper
 Jalankan file berikut dengan URL target:
 ```powershell
-python broken_scraper.py https://example.com
+python scraper.py https://example.com
 ```
 
 Contoh:
 ```powershell
-python broken_scraper.py https://www.python.org
+python scraper.py https://www.python.org
 ```
 
 ## Hasil
 Program akan mencetak ringkasan isi halaman website yang diberikan.
-
-## Catatan
-- Skrip ini sederhana dan cocok untuk pembelajaran.
-- Untuk website yang memblokir bot, mungkin perlu menambahkan header User-Agent atau teknik scraping yang lebih advanced.
-- Pastikan Anda memiliki izin untuk mengambil konten dari website yang dituju.
