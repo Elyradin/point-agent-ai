@@ -7,6 +7,10 @@ Project ini adalah aplikasi agent PDF berbasis Python yang dapat:
 - menangani pertanyaan matematika melalui Gemini,
 - dijalankan lewat antarmuka Streamlit.
 
+Dokumentasi bagian lain:
+- [README-part1.md](README-part1.md) — workflow AI Email Agent Part 1
+- [README-part2.md](README-part2.md) — scraper dan summarizer Part 2
+
 ## Prasyarat
 - Python 3.10+
 - pip
